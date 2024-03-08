@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Destinations</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    />
+  </head>
+  <body>
+    <%- include('partials/navbar.ejs') %>
+    <div class="wrapper-img2"></div>
+    <h1 class="dest-heading">Destinations</h1>
+    <div class="row" style="margin: 0 3vw">
+      <% destinations.forEach(destination => { %>
+      <div class="col-lg-4 col-md-6 mb-4">
+        <div class="card" style="margin-top: 4vw; border: none">
+          <div
+            class="card-body"
+            style="
+              width: 24rem;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              text-align: center;
+            "
+          >
+            <h5 class="card-title"><%= destination.place[0] %></h5>
+            <div class="card-img-top">
+              <img
+                src="<%= destination.coverImage %>"
+                alt="img-dest"
+                style="width: 100%; height: 96%"
+              />
+            </div>
+            <p class="card-text mt-4"><%= destination.description %></p>
+            <a
+              href="/Destinations/explore/<%= destination.place[1] %>"
+              class="btn btn-danger"
+              >Explore</a
+            >
+            <a href="#">Another Link</a>
+          </div>
+        </div>
+      </div>
+      <% }) %>
+    </div>
+    <%- include('partials/footer.ejs') %>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>
